@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}詳細{% endblock %}
+{% block content %}
+<h1>商品詳細</h1>
+<table border="1">
+  <thead>
+      <tr>
+          <th>商品名</th>
+          <td>{{ product.name }}</td>
+      </tr>
+  </thead>
+      <tr>
+          <th>価格</th>
+          <td>{{ product.price }} 円</td>
+      </tr>
+      <thead>
+        <tr>
+            <th>カテゴリ</th>
+            <td>{{ product.category }}</td>
+        </tr>
+    </thead>
+        <tr>
+            <th>商品画像</th>
+            <td><img src="{{product.img.url }}" style="width:100px height:auto;"></td>
+        </tr>
+    </thead>
+    <tr>
+        <th>商品詳細の説明</th>
+        <td></td>
+    </tr>
+</table>
+<form method="post">
+  {% csrf_token %}
+  <a href="{% url 'list' %}">戻る</a>
+  <input type="submit" class="btn btn-detail" value="">
+</form>
+{% endblock %}
+
